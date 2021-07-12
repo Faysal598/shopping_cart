@@ -10,7 +10,7 @@ document.getElementById('plusBtn').addEventListener('click', function () {
     const phonePrice = document.getElementById('phonePrice').innerText;
     const phonePriceNumber = parseFloat(phonePrice);
     const currentPhonePrice = phonePriceNumber + 1219;
-    document.getElementById('phonePrice').innerText = currentPhonePrice;
+    const totalPhonePrice = document.getElementById('phonePrice').innerText = currentPhonePrice;
 })
 // Minus Button Event Handler for Phone...
 document.getElementById('minusBtn').addEventListener('click', function () {
@@ -61,4 +61,23 @@ document.getElementById('minus').addEventListener('click', function () {
         const currentCasePrice = casePriceNumber - 59;
         document.getElementById('casePrice').innerText = currentCasePrice;
     }
+})
+
+//check out button event Handler
+document.getElementById('checkoutBtn').addEventListener('click', function(){
+    const phonePrice = document.getElementById('phonePrice').innerText;
+    const phonePriceNumber = parseFloat(phonePrice);
+    const casePrice = document.getElementById('casePrice').innerText;
+    const casePriceNumber = parseFloat(casePrice);
+    // subtotal price
+    const subtotal = phonePriceNumber + casePriceNumber;
+    const subtotalAmount = document.getElementById('subtotalAmount').innerText = subtotal;
+    const subtotalAmountNumber = parseFloat(subtotalAmount);
+    // tax amount
+    const tax = (subtotal * 0.05).toFixed(2);
+    const taxAmount = document.getElementById('tax').innerText = tax;
+    const taxAmountNumber = parseFloat(taxAmount);
+    // total amount
+    const totalAmount = (subtotalAmountNumber + taxAmountNumber).toFixed(2);
+    document.getElementById('totalAmount').innerText = totalAmount;
 })
